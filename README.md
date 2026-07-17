@@ -33,6 +33,7 @@ As the Cloud Engineer, my responsibilities included:
 - Launch an Amazon EC2 instance
 - Configure Security Groups
 - Connect using SSH
+- Allocate and associate an Elastic IP
 - Install and configure Nginx
 - Configure Amazon SNS notifications
 - Create Amazon CloudWatch alarms
@@ -59,6 +60,7 @@ As the Cloud Engineer, my responsibilities included:
 | Internet Gateway | Provided internet access |
 | Route Table | Routed traffic to the Internet Gateway |
 | Security Groups | Controlled inbound and outbound traffic |
+| Elastic IP | Provided a static public IPv4 address for reliable access to the web server |
 | Amazon CloudWatch | Monitored EC2 health and triggered alarms |
 | Amazon SNS | Sent email notifications when alarms were triggered |
 
@@ -112,7 +114,17 @@ Configured Security Group rules to allow:
 
 ---
 
-### Step 4 — Deploy the Web Server
+### Step 4 — Allocate an Elastic IP
+
+Allocated and associated an Elastic IP with the EC2 instance to provide a consistent public IP address.
+
+This prevents the server’s public IP from changing after the instance is stopped and started.
+
+<img width="1623" height="397" alt="Elastic IP" src="https://github.com/user-attachments/assets/1e50a69f-489f-47f4-9151-ed653fbf0b44" />
+
+---
+
+### Step 5 — Deploy the Web Server
 
 Installed and configured Nginx.
 
@@ -132,7 +144,7 @@ Installed and configured Nginx.
 
 ---
 
-### Step 5 — Configure Amazon SNS
+### Step 6 — Configure Amazon SNS
 
 Configured Amazon SNS to send infrastructure alerts.
 
@@ -140,13 +152,11 @@ Configured Amazon SNS to send infrastructure alerts.
 - Added an email subscription
 - Confirmed the subscription
 
-![SNS Topic](screenshots/sns-topic.png)
-
-![SNS Subscription](screenshots/sns-subscription-confirmed.png)
+<img width="1636" height="526" alt="SNS" src="https://github.com/user-attachments/assets/0fcfa657-ecd9-4cd3-bad3-84db6a4abe48" />
 
 ---
 
-### Step 6 — Configure Amazon CloudWatch
+### Step 7 — Configure Amazon CloudWatch
 
 Created a CloudWatch alarm to monitor the EC2 instance.
 
@@ -155,13 +165,15 @@ Created a CloudWatch alarm to monitor the EC2 instance.
 - Defined evaluation periods
 - Connected the alarm to Amazon SNS
 
-![CloudWatch Alarm](screenshots/cloudwatch-alarm.png)
+<img width="1908" height="309" alt="CloudWatch alert" src="https://github.com/user-attachments/assets/27443057-248b-4de7-8a8b-be48b99229e7" />
 
-![Alarm Configuration](screenshots/cloudwatch-alarm-configuration.png)
+
+<img width="1243" height="471" alt="CW Configs" src="https://github.com/user-attachments/assets/3329f223-5996-4214-b7b0-f0e227c25776" />
+
 
 ---
 
-### Step 7 — Validate the Solution
+### Step 8 — Validate the Solution
 
 Verified:
 
@@ -169,13 +181,11 @@ Verified:
 - Internet connectivity
 - Public HTTP access
 - Nginx web server availability
+- Elastic IP association
+- Website access using the Elastic IP
 - CloudWatch alarm state
 - Amazon SNS email notifications
-
-![Alarm State](screenshots/cloudwatch-alarm-state.png)
-
-![SNS Email Notification](screenshots/sns-email-notification.png)
-
+  
 ---
 
 ## Screenshots
@@ -237,6 +247,8 @@ This project reinforced key AWS cloud engineering concepts, including:
 - Linux Administration
 - SSH Connectivity
 - Web Server Deployment
+- Elastic IP allocation and association
+- Difference between dynamic public IPs and static public IPs
 - Amazon CloudWatch Monitoring
 - Amazon SNS Notifications
 - Infrastructure Troubleshooting
